@@ -1,6 +1,6 @@
 blueprint:
   name: deCONZ - Philips Hue Smart Button (1 button)
-  description: Philips Hue Smart Button (1 buttons), like senic https://www.philips-hue.com/en-us/p/hue-smart-button/046677553715 based on PTM 215ZE EnOcean Alliance
+  description: Philips Hue Smart Button (1 button), https://www.philips-hue.com/en-us/p/hue-smart-button/046677553715
   domain: automation
   input:
     remote:
@@ -10,7 +10,7 @@ blueprint:
         device:
           integration: deconz
           manufacturer: Philips
-          model: SmartButton
+          model: Smart Button
     button_single_press:
       name: Button - Single press
       description: Action to run on a single press of the button
