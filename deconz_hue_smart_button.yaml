@@ -1,6 +1,6 @@
 blueprint:
-  name: deCONZ - Philips Hue Smart Button (1 button)
-  description: Philips Hue Smart Button (1 button), https://www.philips-hue.com/en-us/p/hue-smart-button/046677553715
+  name: deCONZ - Philips Hue Smart Button
+  description: Philips Hue Smart Button - https://www.philips-hue.com/en-us/p/hue-smart-button/046677553715
   domain: automation
   input:
     remote:
