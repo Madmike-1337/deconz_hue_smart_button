@@ -10,7 +10,6 @@ blueprint:
         device:
           integration: deconz
           manufacturer: Philips
-          model: ROM001
     button_single_press:
       name: Button - Single press
       description: Action to run on a single press of the button
