@@ -1,0 +1,51 @@
+blueprint:
+  name: deCONZ - Philips Hue Smart Button (1 button)
+  description: Philips Hue Smart Button (1 buttons), like senic https://www.philips-hue.com/en-us/p/hue-smart-button/046677553715 based on PTM 215ZE EnOcean Alliance
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: Hue Smart Button
+      selector:
+        device:
+          integration: deconz
+          manufacturer: Philips
+          model: SmartButton
+    button_single_press:
+      name: Button - Single press
+      description: Action to run on a single press of the button
+      default: []
+      selector:
+        action: {}
+    button_hold_in:
+      name: Button - Hold in
+      description: Action to run when button held in
+      default: []
+      selector:
+        action: {}
+    button_hold_release:
+      name: Button - Hold release
+      description:  Action to run when button was held in and released
+      default: []
+      selector:
+        action: {}   
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+- choose:
+  - conditions:
+    - '{{ event == 1001 }}'
+    sequence: !input 'button_hold_in'
+  - conditions:
+    - '{{ event == 1002 }}'
+    sequence: !input 'button_single_press'
+  - conditions:
+    - '{{ event == 1003 }}'
+    sequence: !input 'button_hold_release'
